@@ -1,0 +1,280 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+    background: url('https://www.prosportsbackgrounds.com/wp-content/uploads/Milwaukee-Bucks-wallpaper-logo-desktop-NBA-2024-thumb.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    padding: 20px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 500px;
+    animation: fadeIn 1.5s ease-in;
+    position: relative;
+    overflow: hidden;
+}
+
+.title {
+    color: #00471B;
+    margin-bottom: 20px;
+    font-size: 2.8em;
+    font-weight: 800;
+}
+
+.subtitle {
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: 300;
+    font-size: 1.3em;
+}
+
+.birthday-cake {
+    font-size: 100px;
+    margin: 30px 0;
+    animation: bounce 2s infinite;
+}
+
+.message {
+    margin-top: 20px;
+    padding: 5px;
+}
+
+.interests {
+    margin-top: 20px;
+    padding: 5px;
+}
+
+.interest-item {
+    margin: 0;
+}
+
+.giannis-img {
+    max-width: 180px;
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: block;
+    margin: 50px auto 20px;
+    z-index: 1;
+}
+
+.giannis-img:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+/* New fun elements */
+.hidden-giraffe {
+    position: absolute;
+    font-size: 40px;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.basketball {
+    position: absolute;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    user-select: none;
+    z-index: 3;
+    transform: translateY(-15px);
+}
+
+.quote {
+    margin-top: 20px;
+    font-style: italic;
+    color: #00471B;
+    min-height: 50px;
+    transition: opacity 0.5s ease;
+}
+
+/* Beach theme toggle button */
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: rotate(360deg);
+}
+
+/* Beach theme */
+.beach-theme {
+    background: linear-gradient(135deg, #87CEEB, #E8D9A9);
+}
+
+.beach-theme .card {
+    background: rgba(255, 255, 255, 0.85);
+}
+
+/* Animation for basketballs */
+@keyframes bounce-diagonal {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(100px, -100px) rotate(180deg); }
+}
+
+/* Updated sand particles to be more subtle */
+.confetti {
+    position: fixed;
+    width: 3px;
+    height: 3px;
+    background-color: rgba(255, 255, 255, 0.6) !important;
+    border-radius: 50%;
+    animation: fall 4s linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100vh);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Simplify hoop styles */
+.hoop {
+    position: absolute;
+    right: 25px;
+    top: 40%;    /* Moved up from 43% */
+    width: 70px;
+    height: 70px;
+    transform: translateY(-50%);
+    z-index: 2;
+    pointer-events: none;
+    object-fit: contain;
+}
+
+/* Revert to previous ball animation */
+@keyframes shoot-score {
+    0% { 
+        transform: translate(0, -15px);
+    }
+    15% {
+        transform: translate(40px, -100px) rotate(120deg);  /* Quick rise */
+    }
+    30% {
+        transform: translate(80px, -140px) rotate(240deg);  /* High peak */
+    }
+    45% {
+        transform: translate(120px, -120px) rotate(360deg);  /* Start descent */
+    }
+    60% {
+        transform: translate(140px, -90px) rotate(480deg);   /* Falling */
+    }
+    75% {
+        transform: translate(160px, -75px) rotate(600deg);   /* Approach hoop */
+    }
+    85% { 
+        transform: translate(160px, -35px);                  /* Through hoop */
+        opacity: 1;
+    }
+    100% { 
+        transform: translate(160px, -15px);                  /* Final drop */
+        opacity: 0;
+    }
+}
+
+/* Digital Scoreboard styles */
+@font-face {
+    font-family: 'DS-Digital';
+    src: url('https://db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.woff2') format('woff2');
+}
+
+.scoreboard {
+    margin-top: 15px;
+    padding: 15px;
+    background: #000;
+    border: 3px solid #333;
+    border-radius: 10px;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+.scoreboard-label {
+    color: #FF6B00;
+    font-family: 'Arial Narrow', sans-serif;
+    font-weight: bold;
+    font-size: 1.2em;
+    letter-spacing: 2px;
+    text-shadow: 0 0 5px rgba(255,107,0,0.7);
+    margin-bottom: 5px;
+}
+
+.score {
+    font-family: 'DS-Digital', monospace;
+    font-size: 3em;
+    color: #FF0000;
+    text-shadow: 0 0 10px rgba(255,0,0,0.7);
+    padding: 5px;
+    background: #111;
+    border-radius: 5px;
+    letter-spacing: 3px;
+}
+
+/* Add this to handle background change when sand emoji is clicked */
+body.sand-background {
+    background: url('https://images6.alphacoders.com/951/thumb-1920-951657.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.instruction {
+    color: #666;
+    font-size: 0.9em;
+    font-style: italic;
+    margin: 5px 0;  /* Small margin to not affect existing spacing */
+    padding: 0;
+} 
