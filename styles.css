@@ -20,11 +20,13 @@ body {
 .card {
     background: rgba(255, 255, 255, 0.95);
     border-radius: 30px;
-    padding: 50px;
+    padding: 40px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     text-align: center;
     max-width: 500px;
     animation: fadeIn 1.5s ease-in;
+    position: relative;
+    overflow: hidden;
 }
 
 .title {
@@ -65,18 +67,75 @@ body {
 }
 
 .giannis-img {
-    max-width: 300px;
+    max-width: 200px;
     width: 100%;
-    height: 300px;
+    height: 200px;
     object-fit: cover;
-    border-radius: 20px;
+    border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    transition: transform 0.3s ease;
-    margin: 20px 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .giannis-img:hover {
-    transform: scale(1.05);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+/* New fun elements */
+.hidden-giraffe {
+    position: absolute;
+    font-size: 40px;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.basketball {
+    position: absolute;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.quote {
+    margin-top: 20px;
+    font-style: italic;
+    color: #00471B;
+    min-height: 50px;
+    transition: opacity 0.5s ease;
+}
+
+/* Beach theme toggle button */
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: rotate(360deg);
+}
+
+/* Beach theme */
+.beach-theme {
+    background: linear-gradient(135deg, #87CEEB, #E8D9A9);
+}
+
+.beach-theme .card {
+    background: rgba(255, 255, 255, 0.85);
+}
+
+/* Animation for basketballs */
+@keyframes bounce-diagonal {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(100px, -100px) rotate(180deg); }
 }
 
 /* Add sand-like texture at the bottom */
