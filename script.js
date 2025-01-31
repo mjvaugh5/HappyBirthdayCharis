@@ -27,13 +27,19 @@ function setupInteractions() {
     const themeToggle = document.querySelector('.theme-toggle');
     themeToggle.addEventListener('click', () => {
         document.body.classList.toggle('beach-theme');
-        themeToggle.textContent = document.body.classList.contains('beach-theme') ? '🏀' : '🏖️';
+        themeToggle.textContent = document.body.classList.contains('beach-theme') ? '🏀' : '��️';
     });
 
-    // Hidden giraffes that appear randomly
+    // Make giraffes appear more frequently
     setInterval(() => {
         createHiddenGiraffe();
-    }, 10000);
+    }, 5000);
+
+    // Add basketball hoop to the card
+    const hoop = document.createElement('img');
+    hoop.src = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTggMmgydjJoNFYyaDJ2MmgxYzEuMSAwIDIgLjkgMiAydjEyYzAgMS4xLS45IDItMiAySDdjLTEuMSAwLTItLjktMi0yVjZjMC0xLjEuOS0yIDItMmgxVjJ6bTkgMTNjMC0yLjgtMi4yLTUtNS01cy01IDIuMi01IDUgMi4yIDUgNSA1IDUtMi4yIDUtNXoiIGZpbGw9IiMwMDQ3MUIiLz48L3N2Zz4=';
+    hoop.className = 'hoop';
+    document.querySelector('.card').appendChild(hoop);
 
     // Basketball creation on image click
     const giannisImg = document.querySelector('.giannis-img');
@@ -63,7 +69,7 @@ function createHiddenGiraffe() {
         if (giraffe.parentElement) {
             giraffe.remove();
         }
-    }, 5000);
+    }, 3000);
 }
 
 function createBasketball() {
@@ -73,11 +79,21 @@ function createBasketball() {
     ball.style.position = 'absolute';
     ball.style.left = '50%';
     ball.style.top = '50%';
-    ball.style.animation = 'bounce-diagonal 1s ease-in-out';
+    ball.style.animation = 'shoot-score 1.5s ease-out forwards';
     
     document.querySelector('.card').appendChild(ball);
     
-    setTimeout(() => ball.remove(), 1000);
+    // Play swish sound after ball goes through hoop
+    setTimeout(() => {
+        playSwishSound();
+    }, 750);
+    
+    setTimeout(() => ball.remove(), 1500);
+}
+
+function playSwishSound() {
+    const swish = new Audio('data:audio/wav;base64,UklGRjIAAABXQVZFZm10IBIAAAABAAEAQB8AAEAfAAABAAgAAABmYWN0BAAAAAAAAABkYXRhAAAAAA==');
+    swish.play().catch(() => {}); // Catch error if browser blocks autoplay
 }
 
 function createSandParticles() {
