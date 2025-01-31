@@ -27,7 +27,7 @@ function setupInteractions() {
     const themeToggle = document.querySelector('.theme-toggle');
     themeToggle.addEventListener('click', () => {
         document.body.classList.toggle('beach-theme');
-        themeToggle.textContent = document.body.classList.contains('beach-theme') ? '🏀' : '��️';
+        themeToggle.textContent = document.body.classList.contains('beach-theme') ? '🏀' : '🏖️';
     });
 
     // Make giraffes appear more frequently
@@ -35,9 +35,9 @@ function setupInteractions() {
         createHiddenGiraffe();
     }, 5000);
 
-    // Add basketball hoop to the card
-    const hoop = document.createElement('img');
-    hoop.src = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTggMmgydjJoNFYyaDJ2MmgxYzEuMSAwIDIgLjkgMiAydjEyYzAgMS4xLS45IDItMiAySDdjLTEuMSAwLTItLjktMi0yVjZjMC0xLjEuOS0yIDItMmgxVjJ6bTkgMTNjMC0yLjgtMi4yLTUtNS01cy01IDIuMi01IDUgMi4yIDUgNSA1IDUtMi4yIDUtNXoiIGZpbGw9IiMwMDQ3MUIiLz48L3N2Zz4=';
+    // Add basketball hoop (simpler version)
+    const hoop = document.createElement('div');
+    hoop.textContent = '🏀';  // Using emoji instead of SVG
     hoop.className = 'hoop';
     document.querySelector('.card').appendChild(hoop);
 
