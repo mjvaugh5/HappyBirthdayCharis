@@ -1,15 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Add falling confetti effect
-    createConfetti();
+    // Add falling sand effect
+    createSandParticles();
+    // Add Giannis quotes
+    const giannisQuotes = [
+        "Hard work beats talent when talent doesn't work hard.",
+        "I'm just trying to get better each day.",
+        "I'm a winner. I'm not here to be second or third.",
+    ];
+    
+    // Display random Giannis quote every 5 seconds
+    setInterval(() => {
+        const quoteIndex = Math.floor(Math.random() * giannisQuotes.length);
+        document.querySelector('.subtitle').textContent = giannisQuotes[quoteIndex];
+    }, 5000);
 });
 
-function createConfetti() {
-    for (let i = 0; i < 50; i++) {
-        const confetti = document.createElement('div');
-        confetti.classList.add('confetti');
-        confetti.style.left = Math.random() * 100 + 'vw';
-        confetti.style.animationDelay = Math.random() * 3 + 's';
-        confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-        document.body.appendChild(confetti);
+function createSandParticles() {
+    for (let i = 0; i < 100; i++) {
+        const sand = document.createElement('div');
+        sand.classList.add('confetti');
+        sand.style.left = Math.random() * 100 + 'vw';
+        sand.style.animationDelay = Math.random() * 5 + 's';
+        sand.style.animationDuration = (Math.random() * 2 + 3) + 's';
+        document.body.appendChild(sand);
     }
 } 

@@ -7,7 +7,7 @@
 body {
     font-family: 'Arial', sans-serif;
     min-height: 100vh;
-    background: linear-gradient(135deg, #f06, #9f6);
+    background: linear-gradient(135deg, #f4d03f, #c9a66b);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,6 +48,61 @@ body {
     margin: 15px 0;
     font-size: 1.2em;
     color: #444;
+}
+
+.interests {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+}
+
+.interest-item {
+    margin: 15px 0;
+}
+
+.giannis-img {
+    max-width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.giannis-img:hover {
+    transform: scale(1.05);
+}
+
+/* Add sand-like texture at the bottom */
+.container::after {
+    content: '';
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(0deg, #c9a66b 0%, transparent 100%);
+    z-index: -1;
+}
+
+/* Make confetti look like falling sand particles */
+.confetti {
+    position: fixed;
+    width: 5px;
+    height: 5px;
+    background-color: #f4d03f !important;
+    border-radius: 50%;
+    animation: fall 3s linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100vh);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
 }
 
 @keyframes fadeIn {
